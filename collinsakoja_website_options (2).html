@@ -1,0 +1,309 @@
+<!-- ================== Option 1: Portfolio / Consulting Website ================== -->
+<!-- index_portfolio.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CollinsAkoja Consult | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CollinsAkoja Consult</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>CollinsAkoja Consult is a dynamic consulting firm offering data-driven solutions to businesses and individuals across Africa and beyond. We help you grow smartly.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Business Intelligence & Reporting</li>
+      <li>Data Analysis & Visualization</li>
+      <li>Technology Consulting</li>
+      <li>Training & Capacity Building</li>
+    </ul>
+  </section>
+    
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="formMessage"></p>
+    <a href="https://wa.me/2348066064991" class="btn" target="_blank">💬 Chat on WhatsApp</a>
+  </section>
+  <!-- <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section> -->
+
+  <footer>
+    <p>&copy; 2025 CollinsAkoja Consult. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+
+<!-- ================== Option 2: Business Homepage ================== -->
+<!-- index_business.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CollinsAkoja Consult | Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>Welcome to CollinsAkoja Consult</h1>
+    <p>Smart Consulting for a Smart Future</p>
+    <a href="#learn-more" class="btn">Learn More</a>
+  </header>
+
+  <section id="learn-more">
+    <h2>Who We Are</h2>
+    <p>We are a data, strategy and digital transformation consulting firm focused on empowering businesses and entrepreneurs to succeed through innovation, analytics, and insight.</p>
+  </section>
+
+  <section id="highlights">
+    <h2>What We Offer</h2>
+    <div class="grid">
+      <div>
+        <h3>Data Solutions</h3>
+        <p>From Excel to AI, we help businesses turn data into decisions.</p>
+      </div>
+      <div>
+        <h3>Business Growth</h3>
+        <p>We guide your business with modern strategies to scale smarter.</p>
+      </div>
+      <div>
+        <h3>Training</h3>
+        <p>Practical, hands-on training for teams, students, and entrepreneurs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta">
+    <h2>Let's Work Together</h2>
+    <a href="#contact" class="btn">Get In Touch</a>
+  </section>
+<div id="chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 300px; background: white; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2); display: none;">
+    <div style="background: #001f3f; color: white; padding: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+      🤖 CollinsBot
+      <button onclick="document.getElementById('chatbot').style.display='none'" style="float: right; background: none; color: white; border: none;">&times;</button>
+    </div>
+    <div id="chatWindow" style="padding: 10px; max-height: 200px; overflow-y: auto;"></div>
+    <input type="text" id="chatInput" placeholder="Ask me anything..." style="width: 100%; padding: 10px; border: none; border-top: 1px solid #ccc;">
+  </div>
+  <button onclick="document.getElementById('chatbot').style.display='block'" style="position: fixed; bottom: 20px; right: 20px; background: #001f3f; color: white; border: none; padding: 10px 15px; border-radius: 50%; font-size: 20px; cursor: pointer;">💬</button>
+
+  <footer>
+    <p>&copy; 2025 CollinsAkoja Consult. Smart. Reliable. Results.</p>
+  </footer>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('formMessage').textContent = "✅ Thank you! Your message has been received.";
+      this.reset();
+    });
+
+    const chatWindow = document.getElementById('chatWindow');
+    const chatInput = document.getElementById('chatInput');
+
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        const msg = chatInput.value.trim();
+        if (msg) {
+          chatWindow.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
+          let reply = "I'm still learning. Please reach out via the contact form!";
+          if (msg.toLowerCase().includes("service")) reply = "We offer BI, data analytics, training & tech consulting.";
+          else if (msg.toLowerCase().includes("contact")) reply = "Use the form above or WhatsApp us directly.";
+          else if (msg.toLowerCase().includes("hello")) reply = "Hello! How can I assist you today?";
+          chatWindow.innerHTML += `<p><strong>Bot:</strong> ${reply}</p>`;
+          chatInput.value = "";
+          chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+      }
+    });
+    </script>
+</section>
+</body>
+</html>
+
+
+<!-- ================== Shared CSS ================== -->
+<!-- style.css -->
+<style> 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 10px;
+}
+
+header {
+  background-color: #001f3f;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form input, form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button, .btn {
+  background: #001f3f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover, button:hover {
+  background-color: #005f6a;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.grid > div {
+  flex: 1 1 30%;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+
+  section {
+    margin: 10px;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #001f3f;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+</style>
+
+<!-- ================== End of Shared CSS ================== -->
+
+
+
+
+
+
+
+<!-- ================== Option 1: Portfolio / Consulting Website ==================
+<!-- index_portfolio.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CollinsAkoja Consult | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CollinsAkoja Consult</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>CollinsAkoja Consult is a dynamic consulting firm offering data-driven solutions to businesses and individuals across Africa and beyond. We help you grow smartly.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Business Intelligence & Reporting</li>
+      <li>Data Analysis & Visualization</li>
+      <li>Technology Consulting</li>
+      <li>Training & Capacity Building</li>
+    </ul>
+  </section>
+
+  
+
+  
+  <footer>
+    <p>&copy; 2025 CollinsAkoja Consult. All rights reserved.</p>
+  </footer>
+
+  </script>
+</body>
+</html> -->
